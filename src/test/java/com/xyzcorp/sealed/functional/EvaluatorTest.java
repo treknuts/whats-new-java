@@ -2,6 +2,10 @@ package com.xyzcorp.sealed.functional;
 
 import org.junit.jupiter.api.Test;
 
+/*
+ * More from Dan on the interpreter pattern
+ * https://github.com/dhinojosa/design_patterns_training/tree/master/src/main/java/com/xyzcorp/javapatterns/interpreter
+*/
 public class EvaluatorTest {
 
     @Test

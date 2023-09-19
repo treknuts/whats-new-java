@@ -36,6 +36,7 @@ public class GoAheadAndBlockVirtualThread {
                     return 100;
                 });
 
+            // Between 80 and 600 threads there was NO CHANGE IN PERFORMANCE. Mind blown....
             List<Callable<Integer>> callables =
                 callableStream.limit(80).toList();
             executorService.invokeAll(callables);

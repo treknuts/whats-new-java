@@ -5,6 +5,11 @@ import org.junit.jupiter.api.Test;
 import static java.util.FormatProcessor.FMT;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/*
+ * STRING INTERPOLATION
+ * Begins with STR. or FMT.
+ * prefix is \
+*/
 public class StringTemplatesTest {
 
     @Test

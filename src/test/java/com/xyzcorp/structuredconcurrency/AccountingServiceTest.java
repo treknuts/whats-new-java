@@ -5,6 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutionException;
 
+/*
+ * All or nothing with threads ShutdownOnFailure
+ * If a thread fails while another is running it just stops execution of all threads
+ *
+ * ShutdownOnSuccess stops executing when a thread finishes
+ * "We got what we wanted from one thread, we're not going to wait around for the other threads"
+ */
 public class AccountingServiceTest {
 
     @Test
