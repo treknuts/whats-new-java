@@ -11,7 +11,29 @@ import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/*
+ * New string additions from jdk v11
+ */
 public class StringAdditionsTest {
+
+    /*
+     * New string repeat is nice
+     * Turns leftPad into a nifty one-liner
+    */
+    public String leftPad(String str, int length, char ch) {
+        return String.valueOf(ch).repeat(length) + " " + str;
+    }
+
+    @Test
+    void testLeftPad() {
+        String name = "treknuts";
+        int length = 5;
+        char ch = '*';
+        String result = leftPad(name, length, ch);
+        System.out.println(result);
+
+        assertThat(result).isEqualTo("***** treknuts");
+    }
 
 
     @Test
