@@ -1,5 +1,10 @@
 package com.xyzcorp.patternmatching;
 
+/*
+ * Pattern matching MUST be exhaustive
+ * Either make a case for each possible outcome
+ * or have a default case
+ */
 public class PatternMatching {
 
     @SuppressWarnings("PatternVariableCanBeUsed")
@@ -37,7 +42,7 @@ public class PatternMatching {
         switch (s) {
             case null         -> System.out.println("Oops");
             case "Foo", "Bar" -> System.out.println("Great");
-            default           -> System.out.println("Ok");
+            case String str   -> System.out.format("The string is: %s", str);
         }
     }
 
@@ -64,6 +69,15 @@ public class PatternMatching {
         };
     }
 
+    /**
+     * JEP: https://openjdk.org/jeps/443
+     * Preview feature. Not for production
+     * add --enable-preview to compiler args if you want to try
+     * _ denotes and unknown pattern
+     * To destructure you must match the amount of members, but if you don't want to use some, just throw a "_" there
+     * @param object
+     * @return String denoting the type of whatever matches the pattern
+     */
     public static String matchRecordPatternsWithUnnamedVariables(Object object) {
         return switch (object) {
             case Team(String city, String name, int _, _) ->
@@ -76,6 +90,10 @@ public class PatternMatching {
         };
     }
 
+    /*
+     * when keyword
+     * only works with records
+    */
     public static String matchRecordPatternsWhen(Object object) {
         return switch (object) {
             case Team(String city, String name, _, _) when city.startsWith("M") ->
@@ -88,5 +106,14 @@ public class PatternMatching {
             case String s  -> String.format("String %s", s);
             default        -> object.toString();
         };
+    }
+
+    public static String patternMatchOnRecord(Object o) {
+        // Destructuring of a record example
+        if (o instanceof Team(String city, String name, int wins, int losses)) {
+            return String.format("Team %s from %s, a city that starts with M", name, city);
+        } else {
+            return "Unknown";
+        }
     }
 }

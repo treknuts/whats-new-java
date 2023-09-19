@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TextBlocksTest {
+
+    // First character in a text block defines the left margin
     String sampleJSON = """
         {
             "AD": {

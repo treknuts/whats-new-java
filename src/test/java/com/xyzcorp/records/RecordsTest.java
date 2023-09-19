@@ -28,6 +28,16 @@ public class RecordsTest {
         Assertions.assertThat(team.name()).isEqualTo("Seattle");
     }
 
+    /*
+     * Added by treknuts
+     */
+    @Test
+    void testRecordsExtendFromJavaLangRecord() {
+        Album album = new Album("Joshua Tree", new Genre("Alt"), new Artist("", "", "U2"));
+
+        Assertions.assertThat(album).isInstanceOf(Record.class);
+    }
+
     @Test
     void testExtendingByComposition() {
         record Teamz(String name, String city){

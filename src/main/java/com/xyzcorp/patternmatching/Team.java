@@ -6,5 +6,9 @@ public record Team(String city, String name, int wins, int losses) {
     public Team {
         Objects.requireNonNull(name, "Name cannot be null");
         Objects.requireNonNull(city, "City cannot be null");
+        // Added by treknuts
+        // Example of requirements on records
+        if (wins < 0) throw new IllegalArgumentException("Wins cannot be negative");
+        if (losses < 0) throw new IllegalArgumentException("Losses cannot be negative");
     }
 }

@@ -45,4 +45,5 @@ public class PatternMatchingTest {
         String result = PatternMatching.matchRecordPatternsWhen(mariners);
         assertThat(result).isEqualTo("Team Twins from Minnesota, a city that starts with M");
     }
+
 }
